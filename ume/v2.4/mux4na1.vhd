@@ -18,7 +18,7 @@ architecture Behavioral of mux4na1 is
 
 begin
 
-enable: process(sel1, sel2, in1, in2, in3, in4)
+enable: process(sel1, sel2, in1, in2, in3, in4, en)
 begin 
     if (en = '1') then
         if (sel1 = '1' and sel2 = '1') then out1 <= in4;
