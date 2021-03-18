@@ -29,7 +29,6 @@ duv: dekoder2na4
               y3 => s_y3);
               
 stimGen: process
-    type vrednost_signala is ('0', '1');
     begin
         s_EN <= '0', '1' after 400ns;
         s_x0 <= '0', '1' after 100ns, '0' after 200ns, '1' after 300ns, '0' after 400ns,
