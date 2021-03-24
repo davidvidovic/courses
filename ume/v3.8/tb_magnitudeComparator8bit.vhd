@@ -11,18 +11,11 @@ end tb_magnitudeComparator;
 
 architecture Behavioral of tb_magnitudeComparator is
 
-    entity magnitudeComparator8bit is
-    Port (
-        a, b : in std_logic_vector(7 downto 0);
-        lte, gte, neq : out std_logic
-     );
-    end magnitudeComparator8bit;
-
     signal s_a, s_b : std_logic_vector(7 downto 0);
     signal s_lte, s_gte, s_neq : std_logic;
 
 begin
-    duv: magnitudeComparator8bit
+    duv: entity work.magnitudeComparator8bit(Behavioral)
     port map (
         a => s_a,
         b => s_b,
