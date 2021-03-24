@@ -4,10 +4,11 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_arith.ALL;
 
 entity inRangeComparator is
     Port (
-        a : in integer;
+        a : in std_logic_vector(2 downto 0);
         inRange : out std_logic
      );
 end inRangeComparator;
@@ -17,7 +18,7 @@ architecture Behavioral of inRangeComparator is
 begin
     komparator: process (a) is
     begin
-        if ( a >= 3 and a < 7) then
+        if ( a >= conv_std_logic_vector(3, 3) and a < conv_std_logic_vector(7, 3)) then
             inRange <= '1';
         else inRange <= '0';
         end if;
