@@ -11,22 +11,26 @@ entity JKFF is
 end JKFF;
 
 architecture Behavioral of JKFF is
-    
+    signal q_n, q_s : std_logic;
 begin
-    isFallingEdge: process(CLK, J, K)
-    variable tempQ : std_logic;
+    opadajucaIvica: process(clk)
     begin
-        if(falling_edge(CLK)) then
-            if(J='0' and K='1') then
-                tempQ := '0';
-            elsif(J='1' and K='0') then
-                tempQ := '1';
-            elsif(J='1' and K='1') then
-                tempQ := not tempQ;
-            else null;
-            end if;
-        else null;
+        if(falling_edge(clk)) then
+            q_s <= q_n;
         end if;
-        Q <= tempQ;
     end process;
+    
+    SRFF: process
+    begin
+        if(J='0' and K='0') then
+            q_n <= q_s;
+        elsif(J='1' and K='0') then
+            q_n <= '1'; 
+        elsif(J='0' and K='1') then
+            q_n <= '0';
+        else q_n <= not(q_s);  
+     end if;
+     end process;
+     q <= q_s;  
+    
 end Behavioral;
