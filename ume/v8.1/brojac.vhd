@@ -7,7 +7,7 @@ entity brojac is
     generic (M: positive := 2;
              N: positive := 9);             
     port (clk: in std_logic;
-          q: out std_logic_vector(log2c(N) downto 0));
+          q: out std_logic_vector(log2c(N)-1 downto 0));
 end brojac;
 
 architecture Behavioral of brojac is
@@ -18,13 +18,13 @@ begin
     cnt: process (clk) is
         begin
         if (clk'event and clk = '1') then
-                if(count_s = N) then
+                if(count_s >= N) then
                 count_s <= M;
                 else            
                 count_s <= count_s + 1;
                 end if;
         end if;
     end process;
-    q <= conv_std_logic_vector(count_s, log2c(N));
+    q <= conv_std_logic_vector(count_s, log2c(N)-1);
 
 end Behavioral;

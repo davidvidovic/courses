@@ -4,14 +4,14 @@ use work.utils_pkg.all;
 
 
 entity tb_brojac is
- generic (M: positive := 2;
+ generic map (M: positive := 2;
           N: positive := 9);
 end tb_brojac;
 
 architecture Behavioral of tb_brojac is
 
 signal clk_s: std_logic;
-signal q_s: std_logic_vector(log2c(N) downto 0);
+signal q_s: std_logic_vector(log2c(N)-1 downto 0);
 
 
 begin
