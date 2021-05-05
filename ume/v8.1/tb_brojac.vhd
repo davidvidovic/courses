@@ -17,7 +17,7 @@ signal q_s: std_logic_vector(log2c(N)-1 downto 0);
 begin
     duv: entity work.brojac
     generic map (M => M,
-                N => N);
+                N => N)
     port map (
     clk => clk_s,
     q => q_s);

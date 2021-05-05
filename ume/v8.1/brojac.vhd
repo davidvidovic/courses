@@ -13,7 +13,7 @@ end brojac;
 architecture Behavioral of brojac is
 
 subtype cnt_range_t is integer range M to N;
-signal count_s: cnt_range_t := 0;
+signal count_s: cnt_range_t := M;
 begin
     cnt: process (clk) is
         begin
