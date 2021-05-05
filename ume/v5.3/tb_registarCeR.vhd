@@ -8,7 +8,7 @@ entity tb_registarCeR is
 end tb_registarCeR;
 
 architecture Behavioral of tb_registarCeR is
-    signal clk_s, clockEnable_s, reset_s: std_logic;
+    signal clk_s, clockEnable_s, reset_s, writeEnable_s: std_logic;
     signal d_s: std_logic_vector(3 downto 0);
     signal q_s: std_logic_vector(3 downto 0);
 
@@ -19,7 +19,8 @@ begin
         d => d_s,
         q => q_s,
         clockEnable => clockEnable_s,
-        reset => reset_s);
+        reset => reset_s,
+        writeEnable => writeEnable_s);
         
     clk_gen: process
         begin
@@ -34,6 +35,7 @@ begin
                    "0110" after 520 ns, "1111" after 670 ns;
             reset_s <= '0', '1' after 480 ns, '0' after 520 ns;
             clockEnable_s <= '1', '0' after 280 ns, '1' after 320 ns;
+            writeEnable_s <= '1', '0' after 680ns, '1' after 720ns;
         wait;
     end process;
 
