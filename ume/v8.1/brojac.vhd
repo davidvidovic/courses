@@ -25,6 +25,6 @@ begin
                 end if;
         end if;
     end process;
-    q <= conv_std_logic_vector(count_s, log2c(N)-1);
+    q <= conv_std_logic_vector(count_s, log2c(N));
 
 end Behavioral;

@@ -4,7 +4,7 @@ use work.utils_pkg.all;
 
 
 entity tb_brojac is
- generic map (M: positive := 2;
+ generic (M: positive := 2;
           N: positive := 9);
 end tb_brojac;
 
@@ -16,6 +16,8 @@ signal q_s: std_logic_vector(log2c(N)-1 downto 0);
 
 begin
     duv: entity work.brojac
+    generic map (M => M,
+                N => N);
     port map (
     clk => clk_s,
     q => q_s);
